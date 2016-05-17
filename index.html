@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hangman</title>
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap-sass/assets/stylesheets/normalize.css">
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap-sass/assets/stylesheetscss/style.css">
+</head>
+	<body>
+		<h1>Hangman</h1>
+		<section id="hanging-section">
+			<div class="container-fluid" id="hanging-man">
+				<div id="stage"><img src="" alt="Hanging Stage"></div>
+				<div class="body" id="head"></div>
+				<div class="body" id="torso"></div>
+				<div class="body" id="left-arm"></div>
+				<div class="body" id="right-arm"></div>
+				<div class="body" id="left-leg"></div>
+				<div class="body" id="right-leg"></div>
+			</div>
+		</section>
+		<section id="button-section">
+			<div class="container-fluid">
+				<button type="button" class="btn btn-default">Start New Game</button>
+				<button type="button" class="btn btn-warning">Stuck? Use Hint</button>
+				<button type="button" class="btn btn-danger">Super Stuck? Solve!</button>
+			</div>
+		</section>
+		<section id="puzzle-section">
+			<div id="puzzle"></div>
+		</section>
+		<section id="key-board-section">
+			<div class="container-fluid key-board">
+				<div class="kb-top-row">
+					<button id="q" type="button" class="btn btn-default">Q</button>
+					<button id="w" type="button" class="btn btn-default">W</button>
+					<button id="e" type="button" class="btn btn-default">E</button>
+					<button id="r" type="button" class="btn btn-default">R</button>
+					<button id="t" type="button" class="btn btn-default">T</button>
+					<button id="y" type="button" class="btn btn-default">Y</button>
+					<button id="u" type="button" class="btn btn-default">U</button>
+					<button id="i" type="button" class="btn btn-default">I</button>
+					<button id="o" type="button" class="btn btn-default">O</button>
+					<button id="p" type="button" class="btn btn-default">P</button>
+				</div>
+				<div class="kb-middle-row">
+					<button id="a" type="button" class="btn btn-default">A</button>
+					<button id="s" type="button" class="btn btn-default">S</button>
+					<button id="d" type="button" class="btn btn-default">D</button>
+					<button id="f" type="button" class="btn btn-default">F</button>
+					<button id="g" type="button" class="btn btn-default">G</button>
+					<button id="h" type="button" class="btn btn-default">H</button>
+					<button id="j" type="button" class="btn btn-default">J</button>
+					<button id="k" type="button" class="btn btn-default">K</button>
+					<button id="l" type="button" class="btn btn-default">L</button>
+				</div>
+				<div class="kb-bottom-row">
+					<button id="a" type="button" class="btn btn-default">A</button>
+					<button id="a" type="button" class="btn btn-default">A</button>
+					<button id="a" type="button" class="btn btn-default">A</button>
+					<button id="a" type="button" class="btn btn-default">A</button>
+					<button id="a" type="button" class="btn btn-default">A</button>
+					<button id="a" type="button" class="btn btn-default">A</button>
+					<button id="a" type="button" class="btn btn-default">A</button>
+				</div>
+			</div>
+		</section>
+	</body>
+</html>
