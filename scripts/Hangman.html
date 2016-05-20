@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- saved from url=(0085)file:///Users/kabah/General%20Assembly/WDI-29-GAIA/Repos/project-0-hangman/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<title>Hangman</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="./Hangman_files/normalize.css">
+	<link rel="stylesheet" type="text/css" href="./Hangman_files/style.css">
+	<script src="./Hangman_files/jquery.min.js"></script>
+	<script type="text/javascript" src="./Hangman_files/words.js"></script>
+	<script type="text/javascript" src="./Hangman_files/app.js"></script>
+</head>
+	<body>
+		<h1 id="title">Word Catch</h1>
+		<section class="container" id="button-section">
+			<div>
+				<button type="button" id="start-game" class="btn btn-default">Start Game</button>
+				<button type="button" id="new-game" class="btn btn-default">Next Word</button>
+				<button type="button" id="use-hint" class="btn btn-warning">Stuck? Use Hint</button>
+				<button type="button" id="solve" class="btn btn-danger">Super Stuck? Solve!</button>
+			</div>
+		</section>
+		<section class="container" id="points">You caught rain!</section>
+		<!-- <section class="container" id="hanging-section">
+			<div  id="hanging-man">
+				<img id="game-lost" src="imgs/Hangman-lost.svg" alt="Hanging Stage">
+				<div class="body" id="head"></div>
+				<div class="body" id="torso"></div>
+				<div class="body" id="left-arm"></div>
+				<div class="body" id="right-arm"></div>
+				<div class="body" id="left-leg"></div>
+				<div class="body" id="right-leg"></div>
+			</div>
+		</section> -->
+		<section id="score-hint-section" class="container">
+			<div id="Score">
+				<p id="current-score">Score: 4</p>
+				<p id="hints-left">Hints: 6</p>
+			</div>
+		</section>
+		<section>
+			<div id="time">00:40</div>
+		</section>
+		<section class="container responsive-width" id="puzzle-section">
+			<div>
+				<table id="game-board" class="">
+					<tbody><tr>
+						<!-- <td class="box" id="box"></td> -->
+					<td class="secret-letter">r</td><td class="secret-letter">a</td><td class="secret-letter">i</td><td class="secret-letter">n</td></tr>
+				</tbody></table>
+			</div>
+		</section>
+		<section class="container key-board" id="key-board-section">
+			<div>
+				<div class="kb-top-row">
+					<button id="q" type="button" class="letters btn btn-default responsive-width">Q</button>
+					<button id="w" type="button" class="letters btn btn-default responsive-width">W</button>
+					<button id="e" type="button" class="letters btn btn-default responsive-width">E</button>
+					<button id="r" type="button" class="letters btn btn-default responsive-width btn-danger">R</button>
+					<button id="t" type="button" class="letters btn btn-default responsive-width">T</button>
+					<button id="y" type="button" class="letters btn btn-default responsive-width">Y</button>
+					<button id="u" type="button" class="letters btn btn-default responsive-width">U</button>
+					<button id="i" type="button" class="letters btn btn-default responsive-width btn-danger">I</button>
+					<button id="o" type="button" class="letters btn btn-default responsive-width">O</button>
+					<button id="p" type="button" class="letters btn btn-default responsive-width">P</button>
+				</div>
+				<div class="kb-middle-row">
+					<button id="a" type="button" class="letters btn btn-default responsive-width btn-danger">A</button>
+					<button id="s" type="button" class="letters btn btn-default responsive-width">S</button>
+					<button id="d" type="button" class="letters btn btn-default responsive-width">D</button>
+					<button id="f" type="button" class="letters btn btn-default responsive-width">F</button>
+					<button id="g" type="button" class="letters btn btn-default responsive-width">G</button>
+					<button id="h" type="button" class="letters btn btn-default responsive-width">H</button>
+					<button id="j" type="button" class="letters btn btn-default responsive-width">J</button>
+					<button id="k" type="button" class="letters btn btn-default responsive-width">K</button>
+					<button id="l" type="button" class="letters btn btn-default responsive-width">L</button>
+				</div>
+				<div class="kb-bottom-row">
+					<button id="z" type="button" class="letters btn btn-default responsive-width">Z</button>
+					<button id="x" type="button" class="letters btn btn-default responsive-width">X</button>
+					<button id="c" type="button" class="letters btn btn-default responsive-width">C</button>
+					<button id="v" type="button" class="letters btn btn-default responsive-width">V</button>
+					<button id="b" type="button" class="letters btn btn-default responsive-width">B</button>
+					<button id="n" type="button" class="letters btn btn-default responsive-width btn-danger">N</button>
+					<button id="m" type="button" class="letters btn btn-default responsive-width">M</button>
+				</div>
+			</div>
+		</section>
+	
+</body></html>

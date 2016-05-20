@@ -50,7 +50,6 @@ function startTimer(duration, display) {
 
 
 window.onload = function() {
-	// solvePuzzleClicked = false; 
 	letters = document.getElementsByClassName("letters");
 	score = document.getElementById("current-score")
 	newGame = document.getElementById("new-game");
@@ -62,7 +61,8 @@ window.onload = function() {
 	newGame.addEventListener("click", newSecretWord);
 	activateKeys();
 	getSecretWord();
-	startTimer(120, $("#time"));
+
+	startTimer(60, $("#time"));
 };
 	
 function activateKeys()	{
@@ -125,15 +125,15 @@ function checkForWin() {
 		// for (var i=0; i < answer.length; i++) {
 		// addCellAnswer(answer[i]);
 		// }
-		pointsHTML.innerHTML = "You caught " + answer.join("") + "!";
-		winCounter++;
-		score.innerHTML = "Score: " + winCounter;
 		// newSecretWord();
 		// startSlice = 0;
 		// endSlice = 1;
-		console.log(winCounter);
 		// alert("you win");
 	} 
+		pointsHTML.innerHTML = "You caught " + answer.join("") + "!";
+		winCounter++;
+		score.innerHTML = "Score: " + winCounter;
+		console.log(winCounter);
 	// else if (lettersPicked.length > (answer.length + 5)) {
 		
 	// 	pointsHTML.innerHTML = "You lost this round";

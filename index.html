@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Hangman</title>
+	<title>Word Catch</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap-sass/assets/stylesheets/normalize.css">
 	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap-sass/assets/stylesheets/style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
+	<script type="text/javascript" src="scripts/words.js"></script>
 	<script type="text/javascript" src="scripts/app.js"></script>
 </head>
 	<body>
-		<h1 class="jumbotron">Word Guess</h1>
+		<h1 id="title">Word Catch</h1>
 		<section class="container" id="button-section">
 			<div >
-				<button type="button" id="new-game" class="btn btn-default">New Word</button>
+				<button type="button" id="start-game" class="btn btn-default">Start Game</button>
+				<button type="button" id="new-game" class="btn btn-default">Next Word</button>
 				<button type="button" id="use-hint" class="btn btn-warning">Stuck? Use Hint</button>
 				<button type="button" id="solve" class="btn btn-danger">Super Stuck? Solve!</button>
 			</div>
 		</section>
-		<!-- <section class="container" id="points">
-			test
-		</section> -->
+		<section class="container" id="points">
+			Catch Words!
+		</section>
 		<!-- <section class="container" id="hanging-section">
 			<div  id="hanging-man">
 				<img id="game-lost" src="imgs/Hangman-lost.svg" alt="Hanging Stage">
@@ -37,48 +39,53 @@
 				<p id="hints-left">Hints: 10</p>
 			</div>
 		</section>
+		<section>
+			<div id="time">
+				
+			</div>
+		</section>
 		<section class="container responsive-width" id="puzzle-section">
 			<div>
-				<table id="game-board" class="table-responsive">
+				<table id="game-board" class="">
 					<tr>
 						<!-- <td class="box" id="box"></td> -->
 					</tr>
 				</table>
 			</div>
 		</section>
-		<section class="container key-board responsive-width" id="key-board-section">
+		<section class="container key-board" id="key-board-section">
 			<div>
 				<div class="kb-top-row">
-					<button id="q" data-num="1" type="button" class="letters btn btn-default responsive-width">Q</button>
-					<button id="w" data-num="2" type="button" class="letters btn btn-default responsive-width">W</button>
-					<button id="e" data-num="3" type="button" class="letters btn btn-default responsive-width">E</button>
-					<button id="r" data-num="4" type="button" class="letters btn btn-default responsive-width">R</button>
-					<button id="t" data-num="5" type="button" class="letters btn btn-default responsive-width">T</button>
-					<button id="y" data-num="6" type="button" class="letters btn btn-default responsive-width">Y</button>
-					<button id="u" data-num="7" type="button" class="letters btn btn-default responsive-width">U</button>
-					<button id="i" data-num="8" type="button" class="letters btn btn-default responsive-width">I</button>
-					<button id="o" data-num="9" type="button" class="letters btn btn-default responsive-width">O</button>
-					<button id="p" data-num="10" type="button" class="letters btn btn-default responsive-width">P</button>
+					<button id="q"  type="button" class="letters btn btn-default responsive-width">Q</button>
+					<button id="w"  type="button" class="letters btn btn-default responsive-width">W</button>
+					<button id="e"  type="button" class="letters btn btn-default responsive-width">E</button>
+					<button id="r"  type="button" class="letters btn btn-default responsive-width">R</button>
+					<button id="t"  type="button" class="letters btn btn-default responsive-width">T</button>
+					<button id="y"  type="button" class="letters btn btn-default responsive-width">Y</button>
+					<button id="u"  type="button" class="letters btn btn-default responsive-width">U</button>
+					<button id="i"  type="button" class="letters btn btn-default responsive-width">I</button>
+					<button id="o"  type="button" class="letters btn btn-default responsive-width">O</button>
+					<button id="p"  type="button" class="letters btn btn-default responsive-width">P</button>
 				</div>
 				<div class="kb-middle-row">
-					<button id="a" data-num="11" type="button" class="letters btn btn-default responsive-width">A</button>
-					<button id="s" data-num="12" type="button" class="letters btn btn-default responsive-width">S</button>
-					<button id="d" data-num="13" type="button" class="letters btn btn-default responsive-width">D</button>
-					<button id="f" data-num="14" type="button" class="letters btn btn-default responsive-width">F</button>
-					<button id="g" data-num="15" type="button" class="letters btn btn-default responsive-width">G</button>
-					<button id="h" data-num="16" type="button" class="letters btn btn-default responsive-width">H</button>
-					<button id="j" data-num="17" type="button" class="letters btn btn-default responsive-width">J</button>
-					<button id="k" data-num="18" type="button" class="letters btn btn-default responsive-width">K</button>
-					<button id="l" data-num="19" type="button" class="letters btn btn-default responsive-width">L</button>
+					<button id="a"  type="button" class="letters btn btn-default responsive-width">A</button>
+					<button id="s"  type="button" class="letters btn btn-default responsive-width">S</button>
+					<button id="d"  type="button" class="letters btn btn-default responsive-width">D</button>
+					<button id="f"  type="button" class="letters btn btn-default responsive-width">F</button>
+					<button id="g"  type="button" class="letters btn btn-default responsive-width">G</button>
+					<button id="h"  type="button" class="letters btn btn-default responsive-width">H</button>
+					<button id="j"  type="button" class="letters btn btn-default responsive-width">J</button>
+					<button id="k"  type="button" class="letters btn btn-default responsive-width">K</button>
+					<button id="l"  type="button" class="letters btn btn-default responsive-width">L</button>
 				</div>
 				<div class="kb-bottom-row">
-					<button id="z" data-num="20" type="button" class="letters btn btn-default responsive-width">Z</button>
-					<button id="x" data-num="21" type="button" class="letters btn btn-default responsive-width">X</button>
-					<button id="c" data-num="22" type="button" class="letters btn btn-default responsive-width">C</button>
-					<button id="v" data-num="23" type="button" class="letters btn btn-default responsive-width">V</button>
-					<button id="b" data-num="24" type="button" class="letters btn btn-default responsive-width">B</button>
-					<button id="n" data-num="25" type="button" class="letters btn btn-default responsive-width">N</button>
-					<button id="m" data-num="26" type="button" class="letters btn btn-default responsive-width">M</button>
+					<button id="z"  type="button" class="letters btn btn-default responsive-width">Z</button>
+					<button id="x"  type="button" class="letters btn btn-default responsive-width">X</button>
+					<button id="c"  type="button" class="letters btn btn-default responsive-width">C</button>
+					<button id="v"  type="button" class="letters btn btn-default responsive-width">V</button>
+					<button id="b"  type="button" class="letters btn btn-default responsive-width">B</button>
+					<button id="n"  type="button" class="letters btn btn-default responsive-width">N</button>
+					<button id="m"  type="button" class="letters btn btn-default responsive-width">M</button>
 				</div>
 			</div>
 		</section>
