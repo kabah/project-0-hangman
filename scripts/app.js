@@ -39,7 +39,7 @@ function startTimer(duration, display) {
 
         if (--timer < 0) {
         	 $(".letters").unbind("click");
-        	 $("#points").text("Game over! You caught so many words!");
+        	 $("#points").text("Game over! You caught " + winCounter + " words!");
         	 clearInterval(interval);
 
         	/*game over
@@ -69,6 +69,8 @@ window.onload = function() {
 	  e.preventDefault();
 	  startTimer(120, $("#time"));	
 	  activateKeys();
+	  clearBoard();
+	  newSecretWord();
 	});
 	
 	// newGame.addEventListener("click", newSecretWord);
