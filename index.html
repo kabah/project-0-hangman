@@ -10,17 +10,25 @@
 	<script type="text/javascript" src="scripts/app.js"></script>
 </head>
 	<body>
-		<h1 id="title">Word Catch</h1>
+		<h1 id="title">WordCatch!</h1>
 		<section class="container" id="button-section">
 			<div >
 				<button type="button" id="start-game" class="btn btn-default">Start Game</button>
-				<button type="button" id="new-game" class="btn btn-default">Next Word</button>
+				<!-- <button type="button" id="new-game" class="btn btn-default">Next Word</button> -->
 				<button type="button" id="use-hint" class="btn btn-warning">Stuck? Use Hint</button>
 				<button type="button" id="solve" class="btn btn-danger">Super Stuck? Solve!</button>
 			</div>
 		</section>
 		<section class="container" id="points">
 			Catch Words!
+		</section>
+		<section>
+			<div id="rules">
+				<p>
+					You have 2 minutes to "catch" as many words as you can. <br/>
+					You can use as many hints as you'd like, but using the solve button cost you 1 point!
+				</p>
+			</div>
 		</section>
 		<!-- <section class="container" id="hanging-section">
 			<div  id="hanging-man">
@@ -41,7 +49,7 @@
 		</section>
 		<section>
 			<div id="time">
-				
+				02:00
 			</div>
 		</section>
 		<section class="container responsive-width" id="puzzle-section">

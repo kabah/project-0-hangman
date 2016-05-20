@@ -28,7 +28,7 @@ var hintsLeft;
 
 function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
-    setInterval(function () {
+    var setTime = function () {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
 
@@ -37,17 +37,23 @@ function startTimer(duration, display) {
 
         display.text(minutes + ":" + seconds);
 
-        if (--timer < 0) { 
+        if (--timer < 0) {
+        	 $(".letters").unbind("click");
+        	 $("#points").text("Game over! You caught so many words!");
+        	 clearInterval(interval);
+
         	/*game over
 				-Deactivate Keys
 				-Deactivate buttons
 				Show Game over text
         	*/
-            timer = duration;
+            // timer = duration;
         }
-    }, 1000);
-}
+    };
 
+    setTime();
+    interval = setInterval(setTime, 1000);
+};
 
 window.onload = function() {
 	// solvePuzzleClicked = false; 
@@ -59,10 +65,15 @@ window.onload = function() {
 	hintsLeft = document.getElementById("hints-left")
 	useHint.addEventListener("click", hint);
 	solution.addEventListener("click", solve);
-	newGame.addEventListener("click", newSecretWord);
-	activateKeys();
+	$('#start-game').click(function(e){
+	  e.preventDefault();
+	  startTimer(120, $("#time"));	
+	  activateKeys();
+	});
+	
+	// newGame.addEventListener("click", newSecretWord);
 	getSecretWord();
-	startTimer(120, $("#time"));
+	
 };
 	
 function activateKeys()	{
@@ -128,7 +139,7 @@ function checkForWin() {
 		pointsHTML.innerHTML = "You caught " + answer.join("") + "!";
 		winCounter++;
 		score.innerHTML = "Score: " + winCounter;
-		// newSecretWord();
+		newSecretWord();
 		// startSlice = 0;
 		// endSlice = 1;
 		console.log(winCounter);

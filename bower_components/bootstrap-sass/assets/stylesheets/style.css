@@ -5817,6 +5817,9 @@ div {
   text-align: center;
   margin: 0 auto; }
 
+p {
+  font-size: 2vw; }
+
 img {
   max-width: 40%;
   max-height: 40%; }
