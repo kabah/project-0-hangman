@@ -1,8 +1,16 @@
 @import "bootstrap";
 
+body {
+	background: url(https://i.ytimg.com/vi/eOnZ34Fgtmk/maxresdefault.jpg);
+	color: white;
+}
+
 h1 {
 	text-align: center;
+	font-style: italic;
+	text-decoration: underline;
 	font-size: 5vw;
+	text-shadow: 2px 2px 2px gray;
 }
 
 div {
@@ -10,13 +18,15 @@ div {
 	margin: 0 auto;
 }
 p{
-	font-size: 2vw;
+	font-size: 3vw;
+	margin: 0;
+	text-shadow: 2px 2px 2px gray;
 }
 
-img {
+/*img {
 	max-width: 40%;
 	max-height: 40%;
-}
+}*/
 table {
 	margin: 0 auto;
 	text-decoration: underline;
@@ -33,15 +43,36 @@ td {
 }
 tr {
 }
-#puzzle {
+#start-game {
+	font-size: 2vw;
+	padding: 5px 15px;
+	border: 0;
+
+}
+#use-hint {
+	font-size: 2vw;
+	padding: 5px 15px;
+	border: 0;
+}
+#solve {
+	font-size: 2vw;
+	padding: 5px 15px;
+	border: 0;
+}
+#reset {
+	font-size: 2vw;
+	padding: 5px 15px;
+	border: 0;
+}
+#game-board {
 	font-size: 5vw;
-	padding: 30px;
-	top-margin: 20px;
-	bottom-margin: 20px;
+	text-align: center;
+	text-decoration: underline;
 }
 
 .key-board {
-	max-width: 75%;
+	margin: 0 auto;
+	padding: 0;
 }
 
 .kb-top-row,
@@ -51,7 +82,7 @@ tr {
 }
 #score-hint-section {
 	margin: 0 auto;
-	font-size: 2em;
+	font-size: 2vw;
 	/*display: inline;*/
 } 
 #current-score {
@@ -65,16 +96,55 @@ tr {
 }
 
 .letters {
-	font-size: 2vw;
+	font-size: 2.5vw;
 }
 #time {
 	font-size: 3vw;
 	align-self: center;
 }
-#points {
+#correct-guess {
 	font-size: 3vw;
-	text-align: center;
+	color: white;
+	/*background: white;*/
+	text-align: left;
+	/*text-transform: uppercase;*/
 }
-#points:first:letter {
+li::first-letter {
 	text-transform: uppercase;
 }
+#rules {
+	text-align: left;
+}
+@media only screen 
+    and (min-device-width : 375px) // or 213.4375em or 3in or 9cm
+    and (max-device-width : 667px) // or 41.6875em
+    and (width : 667px) // or 41.6875em
+    and (height : 375px) // or 23.4375em
+    and (orientation : landscape) 
+    and (color : 8)
+    and (device-aspect-ratio : 375/667)
+    and (aspect-ratio : 667/375)
+    and (device-pixel-ratio : 2)
+    and (-webkit-min-device-pixel-ratio : 2)
+{ }
+
+@media only screen 
+    and (min-device-width : 375px) // or 213.4375em
+    and (max-device-width : 667px) // or 41.6875em
+    and (width : 375px) // or 23.4375em
+    and (height : 559px) // or 34.9375em
+    and (orientation : portrait) 
+    and (color : 8)
+    and (device-aspect-ratio : 375/667)
+    and (aspect-ratio : 375/559)
+    and (device-pixel-ratio : 2)
+    and (-webkit-min-device-pixel-ratio : 2)
+{
+.key-board { 
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	}
+}
+

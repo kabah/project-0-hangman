@@ -11,14 +11,13 @@
 // create game board based on puzzle array of individual letters
 // double letter words: "tremendous", "knee", "decisive" "longing", "shrill", "economic", "event", "preserve", "jellyfish" "supply",
 
-var lettersPicked = [];
 // var wordBank = [, "cat", "dog", "mouse", "tail", "caption", "debt", "hair", "rule", "wind","tremendous" "exotic" "knee", "decisive" "longing", "shrill", "economic", "event", "preserve", "jellyfish" "supply"];
+var lettersPicked = [];
 var secretWord;
 var answer;
 var tableData;
 var winCounter = 0;
 var hintCounter = 10;
-// var solvePuzzleClicked;
 var solution;
 var useHint;
 var hintsLeft;
@@ -57,6 +56,8 @@ function startTimer(duration, display) {
 
 window.onload = function() {
 	// solvePuzzleClicked = false; 
+	resetButton = document.getElementById("reset");
+	resetButton.addEventListener("click", reloadPage);
 	letters = document.getElementsByClassName("letters");
 	score = document.getElementById("current-score")
 	newGame = document.getElementById("new-game");
@@ -65,17 +66,23 @@ window.onload = function() {
 	hintsLeft = document.getElementById("hints-left")
 	useHint.addEventListener("click", hint);
 	solution.addEventListener("click", solve);
+	$("letters").keydown()
 	$('#start-game').click(function(e){
 	  e.preventDefault();
 	  startTimer(120, $("#time"));	
 	  activateKeys();
-	  clearBoard();
-	  newSecretWord();
+	  // clearBoard();
+	  // newSecretWord();
+	  $("#start-game").unbind("click");
 	});
 	
 	// newGame.addEventListener("click", newSecretWord);
 	getSecretWord();
 	
+};
+
+function reloadPage() {
+	window.location.reload();
 };
 	
 function activateKeys()	{
@@ -131,14 +138,15 @@ function checkLetter(){
 };
 
 function checkForWin() {
-	var pointsHTML = document.getElementById("points");
-
 	var result = result = $("td").map(function(){return this.textContent}).get().join('');
 	if (result == answer.join("")) {
 		// for (var i=0; i < answer.length; i++) {
 		// addCellAnswer(answer[i]);
 		// }
-		pointsHTML.innerHTML = "You caught " + answer.join("") + "!";
+		// pointsHTML.innerHTML = 
+
+		//$("#correct-guess").text(answer.join(""));
+		$("#correct-guess ul").append('<li>' + answer.join("") + '</li>');
 		winCounter++;
 		score.innerHTML = "Score: " + winCounter;
 		newSecretWord();
@@ -219,7 +227,7 @@ function addCellPuzzle(letter) {
 	var row = document.querySelectorAll("tr");
 	var newCell = document.createElement("td");
 	newCell.setAttribute("class", "secret-letter")
-	newCell.innerHTML = "_";
+	newCell.innerHTML = "*";
 	// newCell.innerHTML = letter;
 	row[0].appendChild(newCell);
 	// var elementId = document.querySelectorAll("td").length;
@@ -260,7 +268,9 @@ if(winCounter > 0) {
 		}
 	winCounter--;
 	score.innerHTML = "Score: " + winCounter;
-	console.log(winCounter);
+	checkForWin();
+	// newSecretWord();
+	// console.log(winCounter);
 		}
 	};
 

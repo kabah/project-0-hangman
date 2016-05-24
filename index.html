@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Word Catch</title>
+	<title>WordSprint!</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap-sass/assets/stylesheets/normalize.css">
 	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap-sass/assets/stylesheets/style.css">
@@ -10,26 +10,18 @@
 	<script type="text/javascript" src="scripts/app.js"></script>
 </head>
 	<body>
-		<h1 id="title">WordCatch!</h1>
-		<section class="container" id="button-section">
-			<div >
-				<button type="button" id="start-game" class="btn btn-default">Start Game</button>
-				<!-- <button type="button" id="new-game" class="btn btn-default">Next Word</button> -->
-				<button type="button" id="use-hint" class="btn btn-warning">Stuck? Use Hint</button>
-				<button type="button" id="solve" class="btn btn-danger">Super Stuck? Solve!</button>
-			</div>
-		</section>
-		<section class="container" id="points">
-			Catch Words!
-		</section>
-		<section>
+		<h1 id="title">WordSprint!</h1>
+		
 			<div id="rules">
-				<p>
-					You have 2 minutes to "catch" as many words as you can. <br/>
-					You can use as many hints as you'd like, but using the solve button cost you 1 point!
-				</p>
+				<p>How to play:</p>
+					<ul>
+						<li><p>The stars tell you how many letters are in the word</p></li> 
+						<li><p>You have 2 minutes to guess as many words as you can.</p></li> 
+						<li><p>You have 10 hints, each hint will reveal 1 letter</p></li>
+						<li><p>If you get stuck on a word, you can use the solve button<br>to move on to the next word, but <b><u>it cost you 1 point</u></b></p></li>
+					</ul>
 			</div>
-		</section>
+		
 		<!-- <section class="container" id="hanging-section">
 			<div  id="hanging-man">
 				<img id="game-lost" src="imgs/Hangman-lost.svg" alt="Hanging Stage">
@@ -41,61 +33,73 @@
 				<div class="body" id="right-leg"></div>
 			</div>
 		</section> -->
-		<section id="score-hint-section" class="container">
-			<div id="Score">
-				<p id="current-score">Score: 0</p>
-				<p id="hints-left">Hints: 10</p>
+		
+		<div id="Score">
+			<p id="current-score">Score: 0</p>
+			<p id="hints-left">Hints: 10</p>
+		</div>
+
+	
+		<div id="time">
+			02:00
+		</div>
+	
+	
+		<div class="container" id="puzzle-section">
+			<table id="game-board" class="">
+				<tr>
+					<!-- <td class="box" id="box"></td> -->
+				</tr>
+			</table>
+		</div>
+
+		<div id="button-section" >
+			<button type="button" id="start-game" class="btn btn-default">Start Game</button>
+			<!-- <button type="button" id="new-game" class="btn btn-default">Next Word</button> -->
+			<button type="button" id="use-hint" class="btn btn-warning">Use Hint</button>
+			<button type="button" id="solve" class="btn btn-danger">Solve!</button>
+			<button type="button" id="reset" class="btn btn-primary">Reset</button>
+		</div>
+
+		<div class="container key-board" id="key-board-section">
+			<div class="kb-top-row">
+				<button id="q"  type="button" class="letters btn btn-default responsive-width">Q</button>
+				<button id="w"  type="button" class="letters btn btn-default responsive-width">W</button>
+				<button id="e"  type="button" class="letters btn btn-default responsive-width">E</button>
+				<button id="r"  type="button" class="letters btn btn-default responsive-width">R</button>
+				<button id="t"  type="button" class="letters btn btn-default responsive-width">T</button>
+				<button id="y"  type="button" class="letters btn btn-default responsive-width">Y</button>
+				<button id="u"  type="button" class="letters btn btn-default responsive-width">U</button>
+				<button id="i"  type="button" class="letters btn btn-default responsive-width">I</button>
+				<button id="o"  type="button" class="letters btn btn-default responsive-width">O</button>
+				<button id="p"  type="button" class="letters btn btn-default responsive-width">P</button>
 			</div>
-		</section>
-		<section>
-			<div id="time">
-				02:00
+			<div class="kb-middle-row">
+				<button id="a"  type="button" class="letters btn btn-default responsive-width">A</button>
+				<button id="s"  type="button" class="letters btn btn-default responsive-width">S</button>
+				<button id="d"  type="button" class="letters btn btn-default responsive-width">D</button>
+				<button id="f"  type="button" class="letters btn btn-default responsive-width">F</button>
+				<button id="g"  type="button" class="letters btn btn-default responsive-width">G</button>
+				<button id="h"  type="button" class="letters btn btn-default responsive-width">H</button>
+				<button id="j"  type="button" class="letters btn btn-default responsive-width">J</button>
+				<button id="k"  type="button" class="letters btn btn-default responsive-width">K</button>
+				<button id="l"  type="button" class="letters btn btn-default responsive-width">L</button>
 			</div>
-		</section>
-		<section class="container responsive-width" id="puzzle-section">
-			<div>
-				<table id="game-board" class="">
-					<tr>
-						<!-- <td class="box" id="box"></td> -->
-					</tr>
-				</table>
+			<div class="kb-bottom-row">
+				<button id="z"  type="button" class="letters btn btn-default responsive-width">Z</button>
+				<button id="x"  type="button" class="letters btn btn-default responsive-width">X</button>
+				<button id="c"  type="button" class="letters btn btn-default responsive-width">C</button>
+				<button id="v"  type="button" class="letters btn btn-default responsive-width">V</button>
+				<button id="b"  type="button" class="letters btn btn-default responsive-width">B</button>
+				<button id="n"  type="button" class="letters btn btn-default responsive-width">N</button>
+				<button id="m"  type="button" class="letters btn btn-default responsive-width">M</button>
 			</div>
-		</section>
-		<section class="container key-board" id="key-board-section">
-			<div>
-				<div class="kb-top-row">
-					<button id="q"  type="button" class="letters btn btn-default responsive-width">Q</button>
-					<button id="w"  type="button" class="letters btn btn-default responsive-width">W</button>
-					<button id="e"  type="button" class="letters btn btn-default responsive-width">E</button>
-					<button id="r"  type="button" class="letters btn btn-default responsive-width">R</button>
-					<button id="t"  type="button" class="letters btn btn-default responsive-width">T</button>
-					<button id="y"  type="button" class="letters btn btn-default responsive-width">Y</button>
-					<button id="u"  type="button" class="letters btn btn-default responsive-width">U</button>
-					<button id="i"  type="button" class="letters btn btn-default responsive-width">I</button>
-					<button id="o"  type="button" class="letters btn btn-default responsive-width">O</button>
-					<button id="p"  type="button" class="letters btn btn-default responsive-width">P</button>
-				</div>
-				<div class="kb-middle-row">
-					<button id="a"  type="button" class="letters btn btn-default responsive-width">A</button>
-					<button id="s"  type="button" class="letters btn btn-default responsive-width">S</button>
-					<button id="d"  type="button" class="letters btn btn-default responsive-width">D</button>
-					<button id="f"  type="button" class="letters btn btn-default responsive-width">F</button>
-					<button id="g"  type="button" class="letters btn btn-default responsive-width">G</button>
-					<button id="h"  type="button" class="letters btn btn-default responsive-width">H</button>
-					<button id="j"  type="button" class="letters btn btn-default responsive-width">J</button>
-					<button id="k"  type="button" class="letters btn btn-default responsive-width">K</button>
-					<button id="l"  type="button" class="letters btn btn-default responsive-width">L</button>
-				</div>
-				<div class="kb-bottom-row">
-					<button id="z"  type="button" class="letters btn btn-default responsive-width">Z</button>
-					<button id="x"  type="button" class="letters btn btn-default responsive-width">X</button>
-					<button id="c"  type="button" class="letters btn btn-default responsive-width">C</button>
-					<button id="v"  type="button" class="letters btn btn-default responsive-width">V</button>
-					<button id="b"  type="button" class="letters btn btn-default responsive-width">B</button>
-					<button id="n"  type="button" class="letters btn btn-default responsive-width">N</button>
-					<button id="m"  type="button" class="letters btn btn-default responsive-width">M</button>
-				</div>
-			</div>
-		</section>
+		</div>
+		<div class="container" id="correct-guess">
+			<p>Guessed Words:</p>
+			<ul id="guessed-words">
+				
+			</ul>
+		</div>
 	</body>
 </html>
