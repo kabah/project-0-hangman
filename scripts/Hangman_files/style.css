@@ -5809,30 +5809,18 @@ button.close {
 @media print {
   .hidden-print {
     display: none !important; } }
-body {
-  background: url(https://i.ytimg.com/vi/eOnZ34Fgtmk/maxresdefault.jpg);
-  color: white; }
-
 h1 {
   text-align: center;
-  font-style: italic;
-  text-decoration: underline;
-  font-size: 5vw;
-  text-shadow: 2px 2px 2px gray; }
+  font-size: 5vw; }
 
 div {
   text-align: center;
   margin: 0 auto; }
 
-p {
-  font-size: 3vw;
-  margin: 0;
-  text-shadow: 2px 2px 2px gray; }
+img {
+  max-width: 40%;
+  max-height: 40%; }
 
-/*img {
-	max-width: 40%;
-	max-height: 40%;
-}*/
 table {
   margin: 0 auto;
   text-decoration: underline;
@@ -5845,34 +5833,14 @@ td {
   padding-right: 2px;
   padding-left: 2px; }
 
-#start-game {
-  font-size: 2vw;
-  padding: 5px 15px;
-  border: 0; }
-
-#use-hint {
-  font-size: 2vw;
-  padding: 5px 15px;
-  border: 0; }
-
-#solve {
-  font-size: 2vw;
-  padding: 5px 15px;
-  border: 0; }
-
-#reset {
-  font-size: 2vw;
-  padding: 5px 15px;
-  border: 0; }
-
-#game-board {
+#puzzle {
   font-size: 5vw;
-  text-align: center;
-  text-decoration: underline; }
+  padding: 30px;
+  top-margin: 20px;
+  bottom-margin: 20px; }
 
 .key-board {
-  margin: 0 auto;
-  padding: 0; }
+  max-width: 75%; }
 
 .kb-top-row,
 .kb-middle-row,
@@ -5881,7 +5849,7 @@ td {
 
 #score-hint-section {
   margin: 0 auto;
-  font-size: 2vw;
+  font-size: 2em;
   /*display: inline;*/ }
 
 #current-score {
@@ -5894,30 +5862,17 @@ td {
   margin: 0 auto; }
 
 .letters {
-  font-size: 2.5vw; }
+  font-size: 2vw; }
 
 #time {
   font-size: 3vw;
   align-self: center; }
 
-#correct-guess {
+#points {
   font-size: 3vw;
-  color: white;
-  /*background: white;*/
-  text-align: left;
-  /*text-transform: uppercase;*/ }
+  text-align: center; }
 
-li::first-letter {
+#points:first:letter {
   text-transform: uppercase; }
-
-#rules {
-  text-align: left; }
-
-@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (width: 375px) and (height: 559px) and (orientation: portrait) and (color: 8) and (device-aspect-ratio: 375 / 667) and (aspect-ratio: 375 / 559) and (device-pixel-ratio: 2) and (-webkit-min-device-pixel-ratio: 2) {
-  .key-board {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0; } }
 
 /*# sourceMappingURL=style.css.map */

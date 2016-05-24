@@ -11,13 +11,14 @@
 // create game board based on puzzle array of individual letters
 // double letter words: "tremendous", "knee", "decisive" "longing", "shrill", "economic", "event", "preserve", "jellyfish" "supply",
 
-// var wordBank = [, "cat", "dog", "mouse", "tail", "caption", "debt", "hair", "rule", "wind","tremendous" "exotic" "knee", "decisive" "longing", "shrill", "economic", "event", "preserve", "jellyfish" "supply"];
 var lettersPicked = [];
+// var wordBank = [, "cat", "dog", "mouse", "tail", "caption", "debt", "hair", "rule", "wind","tremendous" "exotic" "knee", "decisive" "longing", "shrill", "economic", "event", "preserve", "jellyfish" "supply"];
 var secretWord;
 var answer;
 var tableData;
 var winCounter = 0;
 var hintCounter = 10;
+// var solvePuzzleClicked;
 var solution;
 var useHint;
 var hintsLeft;
@@ -27,7 +28,7 @@ var hintsLeft;
 
 function startTimer(duration, display) {
     var timer = duration, minutes, seconds;
-    var setTime = function () {
+    setInterval(function () {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
 
@@ -36,28 +37,19 @@ function startTimer(duration, display) {
 
         display.text(minutes + ":" + seconds);
 
-        if (--timer < 0) {
-        	 $(".letters").unbind("click");
-        	 $("#points").text("Game over! You caught " + winCounter + " words!");
-        	 clearInterval(interval);
-
+        if (--timer < 0) { 
         	/*game over
 				-Deactivate Keys
 				-Deactivate buttons
 				Show Game over text
         	*/
-            // timer = duration;
+            timer = duration;
         }
-    };
+    }, 1000);
+}
 
-    setTime();
-    interval = setInterval(setTime, 1000);
-};
 
 window.onload = function() {
-	// solvePuzzleClicked = false; 
-	resetButton = document.getElementById("reset");
-	resetButton.addEventListener("click", reloadPage);
 	letters = document.getElementsByClassName("letters");
 	score = document.getElementById("current-score")
 	newGame = document.getElementById("new-game");
@@ -66,23 +58,11 @@ window.onload = function() {
 	hintsLeft = document.getElementById("hints-left")
 	useHint.addEventListener("click", hint);
 	solution.addEventListener("click", solve);
-	$("letters").keydown()
-	$('#start-game').click(function(e){
-	  e.preventDefault();
-	  startTimer(120, $("#time"));	
-	  activateKeys();
-	  // clearBoard();
-	  // newSecretWord();
-	  $("#start-game").unbind("click");
-	});
-	
-	// newGame.addEventListener("click", newSecretWord);
+	newGame.addEventListener("click", newSecretWord);
+	activateKeys();
 	getSecretWord();
-	
-};
 
-function reloadPage() {
-	window.location.reload();
+	startTimer(60, $("#time"));
 };
 	
 function activateKeys()	{
@@ -138,23 +118,22 @@ function checkLetter(){
 };
 
 function checkForWin() {
+	var pointsHTML = document.getElementById("points");
+
 	var result = result = $("td").map(function(){return this.textContent}).get().join('');
 	if (result == answer.join("")) {
 		// for (var i=0; i < answer.length; i++) {
 		// addCellAnswer(answer[i]);
 		// }
-		// pointsHTML.innerHTML = 
-
-		//$("#correct-guess").text(answer.join(""));
-		$("#correct-guess ul").append('<li>' + answer.join("") + '</li>');
-		winCounter++;
-		score.innerHTML = "Score: " + winCounter;
-		newSecretWord();
+		// newSecretWord();
 		// startSlice = 0;
 		// endSlice = 1;
-		console.log(winCounter);
 		// alert("you win");
 	} 
+		pointsHTML.innerHTML = "You caught " + answer.join("") + "!";
+		winCounter++;
+		score.innerHTML = "Score: " + winCounter;
+		console.log(winCounter);
 	// else if (lettersPicked.length > (answer.length + 5)) {
 		
 	// 	pointsHTML.innerHTML = "You lost this round";
@@ -227,7 +206,7 @@ function addCellPuzzle(letter) {
 	var row = document.querySelectorAll("tr");
 	var newCell = document.createElement("td");
 	newCell.setAttribute("class", "secret-letter")
-	newCell.innerHTML = "*";
+	newCell.innerHTML = "_";
 	// newCell.innerHTML = letter;
 	row[0].appendChild(newCell);
 	// var elementId = document.querySelectorAll("td").length;
@@ -268,9 +247,7 @@ if(winCounter > 0) {
 		}
 	winCounter--;
 	score.innerHTML = "Score: " + winCounter;
-	checkForWin();
-	// newSecretWord();
-	// console.log(winCounter);
+	console.log(winCounter);
 		}
 	};
 
